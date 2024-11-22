@@ -3,13 +3,6 @@ body {
   font-size: 1.5rem;
 }
 
-img {
-  max-width: 50vw;
-  max-height: 25vw;
-  display: block;
-  margin: auto;
-}
-
 form {
   display: flex;
   justify-content: center;
@@ -32,6 +25,88 @@ button[type="submit"] {
   border: 1px solid #222;
 }
 
-#greeting:empty {
-  display: none;
+
+/* Card Container */
+.modern-card {
+  width: 100%;
+  max-width: 100%; /* Remove qualquer limite */
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Card Content */
+.card-content {
+  padding: 15px;
+  text-align: left;
+}
+
+/* Title */
+.card-title {
+  font-size: 1.25em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5px;
+}
+
+/* Description */
+.card-description {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+/* Button */
+.card-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+
+.inputs-container {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  gap: 10px; /* Espaçamento entre os campos */
+  margin-bottom: 20px;
+}
+
+.input_num {
+  width: 200px; /* Ajusta a largura dos campos */
+  height: 15px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input_text {
+  width: 250px; /* Ajusta a largura dos campos */
+  height: 15px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.inputs-container label {
+  display: block;
+  width: 350px;
+  padding: 8px;
+  font-size: 20px;
+  text-align: left;  
 }
