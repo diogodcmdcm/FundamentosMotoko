@@ -341,8 +341,8 @@ Operadores de atribuição
 Existem muitos operadores de atribuição em Motoko. Vamos focar apenas em alguns essenciais aqui:
 
 := atribuição (atualização)
-+= adicionar          equivalente a i := i + 1;
--= subtrair           equivalente a i := i - 1;
++= adicionar         i += 1; equivalente a i := i + 1;
+-= subtrair          i -= 1; equivalente a i := i - 1;
 *= multiplicar        equivalente a i := i * 1;
 /= dividir            equivalente a i := i / 1;
 %= módulo             equivalente a i := i % 1;
@@ -839,7 +839,7 @@ take<T>(array : [T], length : Int) : [T] -  Cria um novo subarray contendo um n�
                                             assert Array.take(array, -99) == [1, 2, 3, 4, 5];
 */
 
-/*###################### ARRAY  #######################*/
+/*###################### LIST  #######################*/
 /*
    List é uma estrutura de dados que representa uma sequência de valores do mesmo tipo. 
    As principais características dos List são:
@@ -946,8 +946,11 @@ public query func ordenar_list() : async List.List<Int> {
 
 };
 
-//var listA : List<Nat> = (1);  // verificar se lista á imutavel e verificar quais são as diferenças entre array e list
-/* segundo a documentação a diferença é a seguinte (porem achei estranha): A diferença entre uma lista e um array é que um array é armazenado como um bloco contíguo de bytes na memória e uma lista é 'espalhada' sem que os elementos tenham que ser adjacentes uns aos outros. A vantagem é que podemos usar a memória de forma mais eficiente preenchendo a memória de forma mais flexível. A desvantagem é que para operações na lista inteira, temos que visitar cada elemento um por um, o que pode ser computacionalmente caro.
+
+/* segundo a documentação da ICP a diferença é a seguinte: A diferença entre uma lista e um array é que um array é armazenado como um bloco contíguo de bytes na memória 
+                                                           e uma lista é 'espalhada' sem que os elementos tenham que ser adjacentes uns aos outros. 
+                                                           A vantagem é que podemos usar a memória de forma mais eficiente preenchendo a memória de forma mais flexível. 
+                                                           A desvantagem é que para operações na lista inteira, temos que visitar cada elemento um por um, o que pode ser computacionalmente caro.
 */
 
 /*
@@ -2123,12 +2126,7 @@ dropWhile<X>(buffer : Buffer<X>, predicate : X -> Bool) : Buffer<X>
    Record são estruturas que você pode utilizar para padronizar os dados que serão armazenados. 
   Estes dados podem ser incluidos em array, list, hashmap etc. */
 
-  type Pessoa = {
-    nome : Text;
-    email : Text;
-    cidade : Text;
-    uf : Text;
-  };
+  
 
 
 /*
@@ -2159,6 +2157,13 @@ Necessário o seguinte import:
   public func put_hashmap(chave: Text, numero: Nat) : async [(Text, Nat)] {
     mapA.put(chave, numero);
     return Iter.toArray(mapA.entries());
+  };
+
+  type Pessoa = {
+    nome : Text;
+    email : Text;
+    cidade : Text;
+    uf : Text;
   };
 
   public func put_record_hashmap(nome: Text, email: Text, cidade: Text, uf: Text) : async [(Text, Pessoa)] {
